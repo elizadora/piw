@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inputs</title>
+</head>
+<body>
+    <h2>Calculdora de preço<h2>
+    
+    <input text="text" name="preco"  id="preco"/> <br/>
+    <input type="number" name="quantidade"  id="quantidade"/>
+
+    <p>O Resultado é: 0</p>
+</body>
+<script>
+    // pegando o elementos através do id
+    const preco = document.getElementById('preco');
+    const quantidade = document.getElementById('quantidade');
+
+    // adicionando o evento onchange para os inputs
+    quantidade.onchange = function(){calcular()}
+    preco.onchange = function(){calcular()}
+
+    //função que é chamada quando o evento onchange é disparado
+    function calcular(){
+        const resultado = preco.value * quantidade.value;
+        document.querySelector('p').innerHTML = `O resultado é: ${resultado}`;
+    }
+</script>
+</html>

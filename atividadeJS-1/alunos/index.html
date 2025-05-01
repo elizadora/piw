@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+</head>
+
+<body>
+    <h2>Lista de alunos</h2>
+    <ul>
+        <li>Aluno 1</li>
+        <li>Aluno 2</li>
+        <li>Aluno 3</li>
+        <li>Aluno 4</li>
+        <li>Aluno 5</li>
+        <li>Aluno 6</li>
+    </ul>
+
+</body>
+
+<script>
+    // pega todos os elementos li do documento
+    let alunos = document.querySelectorAll('li');
+
+    // percorre os elementos e os que tiverem o índice par muda a cor
+    for (let i = 0; i < alunos.length; i++){
+        if( (i + 1) % 2 == 0){
+            alunos[i].style.color = "red";
+        }
+    }
+
+</script>
+
+</html>

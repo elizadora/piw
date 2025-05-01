@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <p id="cor">A cor é</p>
+    <button onclick="changeBackground()" type="button" style="cursor: pointer;">Mude o background</button>
+    
+</body>
+<script>
+    function changeBackground() {
+        // gera um número aleatório entre 0 e 255 que vai ser usado para a cor
+        let red = Math.floor(Math.random() * 255);
+        let blue = Math.floor(Math.random() * 255);
+        let green = Math.floor(Math.random() * 255);
+
+        let newColor = `rgb(${red}, ${green}, ${blue})`; 
+
+        // muda a cor do body
+        document.body.style.backgroundColor = newColor;
+        document.getElementById("cor").innerHTML = newColor;
+        
+    }
+</script>
+</html>
