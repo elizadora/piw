@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br" id="my-html">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Pokemons</title>
+
+  <style>
+    body{
+      display: flex;
+      flex-wrap: wrap;
+      gap : 20px;
+    }
+
+    h1{
+      width: 100%;
+    }
+
+    div{
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+
+  </style>
+
+ </head>
+
+
+<body id="my-body">
+  <h1>My Pokemons</h1>
+
+<script>
+  const myHtml = document.getElementById("my-html");
+  const myBody = document.getElementById("my-body");
+  let id = 1;
+
+  function addPokemon() {
+
+    const newDivPokemon = document.createElement('div');
+    const newTagId = document.createElement('p');
+    const newTagPokemon = document.createElement('img');
+
+
+    const pokemon = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+    newTagPokemon.src = pokemon;
+
+    newTagId.innerText = `#${id}`;
+
+    id++;
+
+    newDivPokemon.appendChild(newTagPokemon);
+    newDivPokemon.appendChild(newTagId);
+
+    myBody.appendChild(newDivPokemon);
+
+  }
+
+  myHtml.addEventListener("click", addPokemon);
+</script>
+</body>
+
+</html>
