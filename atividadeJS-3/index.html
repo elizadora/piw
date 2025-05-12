@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./mystyle.css" />
+    <title>API</title>
+  </head>
+
+  <body id="myBody">
+    <h1>Dados da API</h1>
+  </body>
+  <script>
+    
+  const myBody = document.getElementById("myBody");
+    async function fetchDataAPI() {
+      try {
+        const response = await fetch(
+          "https://hp-api.onrender.com/api/characters/",
+        );
+        const students = await response.json();
+        const imageStudents = students.filter(student => student.image !== "");
+        
+      for(let i = 0; i < imageStudents.length; i++){
+        const newDiv = document.createElement('div');
+        const newP = document.createElement('p');
+        const newImg = document.createElement('img');
+
+        newP.innerText = imageStudents[i].name;
+        newImg.src = imageStudents[i].image;
+
+        newDiv.appendChild(newP);
+        newDiv.appendChild(newImg);
+
+        myBody.appendChild(newDiv);
+      }
+
+      } catch (error) {
+        console.error("Erro ao buscar alunos", error);
+      }
+    }
+
+    fetchDataAPI();
+  </script>
+</html>

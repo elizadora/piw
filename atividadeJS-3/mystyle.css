@@ -1,0 +1,30 @@
+body{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+h1{
+  width: 100%;
+}
+
+div{
+  display: flex;
+  width: 200px;
+  height: 250px;
+  justify-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+div:hover{
+  transform: scale(110%);
+}
+
+img{
+  width: 50%;
+}
