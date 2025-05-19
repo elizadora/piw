@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria</title>
+</head>
+<style>
+    body{
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    div{
+        width: 300px;
+        border: 1px solid black;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    div img{
+        max-width: 100px;
+    }
+    div p{
+        width: 100%;
+    }
+</style>
+<body id="MyBody">
+    
+</body>
+<script>
+    const myBody = document.getElementById('MyBody');
+
+    // traz dados da api
+    async function getCoffes(){
+        try{
+            const response = await fetch("https://api.sampleapis.com/coffee/hot");
+            
+            const coffes = await response.json();
+
+            coffes.forEach(coffe => {
+                
+                const myDiv = document.createElement("div");
+                const myImg = document.createElement("img");
+                const myTitle = document.createElement("p");
+                const myDescription = document.createElement("p");
+
+                myImg.src = coffe.image
+                myTitle.innerText = coffe.title;
+                myDescription.innerHTML = coffe.description;
+
+                myDiv.appendChild(myImg);
+                myDiv.appendChild(myTitle);
+                myDiv.appendChild(myDescription);
+
+                
+                myBody.appendChild(myDiv);
+                
+
+            });
+
+        }catch(erro){
+            console.error(erro);
+        }
+    }
+
+    getCoffes();
+</script>
+</html>
