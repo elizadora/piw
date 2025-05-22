@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Questão 2</title>
+</head>
+<body>
+    <div class="nav"">
+        <h1>Pokédex</h1>
+    </div>
+    <div id="pokemon-container">
+
+    </div>
+    
+</body>
+<script>
+    const myContainer = document.getElementById('pokemon-container');
+
+    async function getPokemons(pokemonId) {
+
+        try{
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+            
+            const pokemon = await response.json();
+
+
+            const newDiv = document.createElement('div');
+            newDiv.className = "pokemon-card";
+
+            const newImg = document.createElement('img');
+            const newPName = document.createElement('p');
+            newPName.className = "pokemon-name"
+
+            const newPNumber = document.createElement('p');
+
+            newImg.src = pokemon.sprites.front_default;
+            newPName.innerText = pokemon.name;
+            
+            newPNumber.innerText = `#${String(pokemonId).padStart(3, "0")}`;
+
+
+            newDiv.appendChild(newImg);
+            newDiv.appendChild(newPName);
+            newDiv.appendChild(newPNumber);
+
+
+            myContainer.appendChild(newDiv);
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    for(let i = 1; i <= 151; i++){
+        getPokemons(i);
+    }
+</script>
+</html>
